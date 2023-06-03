@@ -13,6 +13,7 @@ app.use(cors({
     methods: ['GET','PUT','POST','OPTIONS'] 
 
 }));
+app.set("trust proxy",1);
 
 app.use(cookieParser())
 app.use(express.json())
