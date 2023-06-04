@@ -4,15 +4,18 @@ const errorMiddleware = require('./middleware/error')
 const cookieParser = require('cookie-parser')
 const dotenv =  require('dotenv');
 const cors = require('cors')
+
 // Config 
 dotenv.config({path:"backend/config/config.env"});
 
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-    methods: ['GET','PUT','POST','OPTIONS'] 
+// app.use(cors({
+//     origin: 'http://localhost:3000',
+//     credentials: true,
+//     methods: ['GET','PUT','POST','OPTIONS'] 
 
-}));
+// }));
+
+app.use(cors());
 
 app.use(cookieParser())
 app.use(express.json())
