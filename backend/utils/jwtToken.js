@@ -10,8 +10,8 @@ const sendToken = (user,statusCode, res) =>{
         expires: new Date(
             Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 *1000
         ),
-        secure: true,
-        sameSite: 'none'
+       secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
+    sameSite: req.secure || req.headers['x-forwarded-proto'] === 'https' ? 'none' : 'lax',
         
     };
 
